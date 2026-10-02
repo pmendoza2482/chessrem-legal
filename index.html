@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ChessRem — Política de Privacidad / Privacy Policy</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Source+Sans+3:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+  :root{
+    color-scheme: light dark;
+    --bg:#EEF1EC; --surface:#FFFFFF; --fg:#10171D; --muted:#4B5A56;
+    --accent:#2F6B4F; --accent-ink:#F4F8F5; --border:#D8DED7;
+    --sq-light:#E7ECE4; --sq-dark:#2F6B4F;
+    --font-display:'Fraunces',Georgia,serif;
+    --font-body:'Source Sans 3',system-ui,sans-serif;
+    --font-mono:'IBM Plex Mono',ui-monospace,monospace;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#0D1B2A; --surface:#15263A; --fg:#E7ECE4; --muted:#9FB0A8;
+      --accent:#4FA579; --accent-ink:#0D1B2A; --border:#223349;
+      --sq-light:#1C2F42; --sq-dark:#4FA579;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#0D1B2A; --surface:#15263A; --fg:#E7ECE4; --muted:#9FB0A8;
+    --accent:#4FA579; --accent-ink:#0D1B2A; --border:#223349;
+    --sq-light:#1C2F42; --sq-dark:#4FA579;
+  }
+
+  *{ box-sizing:border-box; }
+  html,body{ margin:0; padding:0; }
+  body{
+    background:var(--bg); color:var(--fg);
+    font-family:var(--font-body);
+    padding-left:16px; padding-right:16px;
+  }
+  .page{ max-width:680px; margin:0 auto; padding:48px 0 72px; }
+
+  .top{ display:flex; justify-content:space-between; align-items:flex-start; gap:16px; flex-wrap:wrap; margin-bottom:8px; }
+  .mark{ display:flex; align-items:center; gap:10px; }
+  .mark .board{
+    width:22px; height:22px; border-radius:4px; overflow:hidden;
+    display:grid; grid-template-columns:1fr 1fr; grid-template-rows:1fr 1fr;
+    border:1px solid var(--border); flex:none;
+  }
+  .mark .board span:nth-child(1),.mark .board span:nth-child(4){ background:var(--sq-dark); }
+  .mark .board span:nth-child(2),.mark .board span:nth-child(3){ background:var(--sq-light); }
+  .mark b{ font-family:var(--font-display); font-weight:600; font-size:1.05rem; letter-spacing:.01em; }
+
+  .langtoggle{
+    display:inline-flex; border:1px solid var(--border); border-radius:999px; overflow:hidden;
+    font-family:var(--font-mono); font-size:.78rem;
+  }
+  .langtoggle button{
+    appearance:none; border:0; background:transparent; color:var(--muted);
+    padding:6px 14px; cursor:pointer; font-family:inherit; font-size:inherit;
+  }
+  .langtoggle button[aria-pressed="true"]{ background:var(--accent); color:var(--accent-ink); }
+
+  h1{
+    font-family:var(--font-display); font-weight:600; font-size:clamp(1.8rem,5vw,2.4rem);
+    line-height:1.12; margin:20px 0 6px; letter-spacing:-0.01em;
+  }
+  .updated{
+    font-family:var(--font-mono); font-size:.78rem; color:var(--muted);
+    margin:0 0 36px; display:flex; align-items:center; gap:8px;
+  }
+  .updated .dot{ width:5px;height:5px;border-radius:50%; background:var(--accent); }
+
+  .clause{ display:flex; gap:16px; padding:26px 0; border-top:1px solid var(--border); }
+  .badge{
+    flex:none; width:30px; height:30px; margin-top:2px;
+    border-radius:4px; overflow:hidden;
+    display:grid; grid-template-columns:1fr 1fr; grid-template-rows:1fr 1fr;
+    border:1px solid var(--border);
+  }
+  .badge span{ display:block; }
+  .clause:nth-child(odd) .badge span:nth-child(1),
+  .clause:nth-child(odd) .badge span:nth-child(4){ background:var(--sq-dark); }
+  .clause:nth-child(odd) .badge span:nth-child(2),
+  .clause:nth-child(odd) .badge span:nth-child(3){ background:var(--sq-light); }
+  .clause:nth-child(even) .badge span:nth-child(1),
+  .clause:nth-child(even) .badge span:nth-child(4){ background:var(--sq-light); }
+  .clause:nth-child(even) .badge span:nth-child(2),
+  .clause:nth-child(even) .badge span:nth-child(3){ background:var(--sq-dark); }
+
+  .clause-body h2{
+    font-family:var(--font-display); font-weight:600; font-size:1.18rem;
+    margin:0 0 10px; letter-spacing:-0.005em;
+  }
+  .clause-body p{ margin:0 0 10px; max-width:62ch; line-height:1.6; color:var(--fg); }
+  .clause-body p:last-child{ margin-bottom:0; }
+  .clause-body ul{ margin:10px 0; padding-left:1.1em; max-width:60ch; }
+  .clause-body li{ margin:4px 0; line-height:1.55; }
+  .clause-body .muted{ color:var(--muted); }
+
+  .contact{
+    margin-top:14px; display:inline-flex; align-items:center; gap:10px;
+    background:var(--surface); border:1px solid var(--border); border-radius:8px;
+    padding:8px 10px 8px 14px;
+  }
+  .contact code{ font-family:var(--font-mono); font-size:.85rem; }
+  .contact a.mailto{ color:var(--fg); text-decoration:none; }
+  .contact button{
+    appearance:none; border:1px solid var(--border); background:transparent; color:var(--fg);
+    border-radius:6px; padding:5px 10px; font-family:var(--font-body); font-size:.78rem;
+    cursor:pointer;
+  }
+  .contact button:hover{ border-color:var(--accent); color:var(--accent); }
+  .contact .ok{ color:var(--accent); }
+
+  footer{
+    margin-top:48px; padding-top:24px; border-top:1px solid var(--border);
+    font-family:var(--font-mono); font-size:.72rem; color:var(--muted); line-height:1.6;
+  }
+
+  [lang="en"]{ display:none; }
+  [data-lang="en"] [lang="en"]{ display:block; }
+  [data-lang="en"] [lang="es"]{ display:none; }
+</style>
+</head>
+<body>
+<div class="page" id="app">
+  <div class="top">
+    <div class="mark">
+      <span class="board" aria-hidden="true"><span></span><span></span><span></span><span></span></span>
+      <b>ChessRem</b>
+    </div>
+    <div class="langtoggle" role="group" aria-label="Idioma / Language">
+      <button type="button" data-lang-btn="es" aria-pressed="true">ES</button>
+      <button type="button" data-lang-btn="en" aria-pressed="false">EN</button>
+    </div>
+  </div>
+
+  <h1 lang="es">Política de Privacidad de ChessRem</h1>
+  <h1 lang="en">ChessRem Privacy Policy</h1>
+  <p class="updated"><span class="dot"></span><span lang="es">Última actualización: 2 de octubre de 2026</span><span lang="en">Last updated: October 2, 2026</span></p>
+
+  <div class="clause">
+    <div class="badge" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+    <div class="clause-body">
+      <h2 lang="es">1. Responsable del tratamiento</h2>
+      <h2 lang="en">1. Data Controller</h2>
+      <p lang="es">PM Software Solutions es la entidad responsable de esta aplicación.</p>
+      <p lang="en">PM Software Solutions is responsible for this application.</p>
+      <div class="contact">
+        <a class="mailto" href="mailto:chessrem.app@gmail.com"><code>chessrem.app@gmail.com</code></a>
+        <button type="button" class="copy-email">
+          <span lang="es">Copiar</span><span lang="en">Copy</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="clause">
+    <div class="badge" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+    <div class="clause-body">
+      <h2 lang="es">2. Datos que recopilamos</h2>
+      <h2 lang="en">2. Data We Collect</h2>
+      <p lang="es">ChessRem no recopila ni transmite datos personales a servidores externos. Toda la información se almacena exclusivamente en tu dispositivo:</p>
+      <p lang="en">ChessRem does not collect or transmit personal data to external servers. All information is stored exclusively on your device:</p>
+      <ul lang="es">
+        <li>Archivos PGN que tú mismo generas o importas.</li>
+        <li>Progreso y preferencias de entrenamiento (posiciones, fallos, configuración).</li>
+        <li>Preferencias de la aplicación (tema, idioma, sonido).</li>
+      </ul>
+      <ul lang="en">
+        <li>PGN files you create or import.</li>
+        <li>Training progress and preferences (positions, errors, settings).</li>
+        <li>Application preferences (theme, language, sound).</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="clause">
+    <div class="badge" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+    <div class="clause-body">
+      <h2 lang="es">3. Permisos del dispositivo y almacenamiento de archivos</h2>
+      <h2 lang="en">3. Device Permissions and File Storage</h2>
+      <p lang="es">En Android, ChessRem usa el Framework de Acceso a Almacenamiento (Storage Access Framework): eliges una carpeta la primera vez, y la app solo puede leer y escribir archivos <code>.pgn</code> dentro de ella. No se solicita acceso general al almacenamiento del dispositivo.</p>
+      <p lang="es">En iOS, tus archivos <code>.pgn</code> se guardan en iCloud Drive, carpeta ChessRem, lo que permite sincronizarlos entre tus dispositivos y conservarlos aunque desinstales la app. Sin una sesión de iCloud activa, se guardan solo en el espacio privado de la aplicación.</p>
+      <p lang="es" class="muted">No se accede a contactos, cámara, micrófono ni ningún otro recurso sensible.</p>
+      <p lang="en">On Android, ChessRem uses the Storage Access Framework: you choose a folder once, and the app can only read and write <code>.pgn</code> files inside it. No general device storage access is requested.</p>
+      <p lang="en">On iOS, your <code>.pgn</code> files are stored in iCloud Drive, ChessRem folder, which lets them sync across your devices and survive uninstalling the app. Without an active iCloud session, they are stored only inside the app's private space.</p>
+      <p lang="en" class="muted">No access to contacts, camera, microphone, or any other sensitive resource.</p>
+    </div>
+  </div>
+
+  <div class="clause">
+    <div class="badge" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+    <div class="clause-body">
+      <h2 lang="es">4. Servicios de terceros</h2>
+      <h2 lang="en">4. Third-Party Services</h2>
+      <p lang="es">ChessRem no integra servicios de publicidad, análisis ni seguimiento de terceros. El motor de análisis Stockfish opera completamente de forma local en tu dispositivo.</p>
+      <p lang="en">ChessRem does not integrate advertising, analytics, or tracking services. The Stockfish analysis engine runs entirely locally on your device.</p>
+    </div>
+  </div>
+
+  <div class="clause">
+    <div class="badge" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+    <div class="clause-body">
+      <h2 lang="es">5. Seguridad</h2>
+      <h2 lang="en">5. Security</h2>
+      <p lang="es">Dado que no transmitimos datos a servidores externos, el riesgo de exposición de información es mínimo. Te recomendamos mantener actualizado el sistema operativo de tu dispositivo.</p>
+      <p lang="en">Since we do not transmit data to external servers, the risk of information exposure is minimal. We recommend keeping your device's operating system up to date.</p>
+    </div>
+  </div>
+
+  <div class="clause">
+    <div class="badge" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+    <div class="clause-body">
+      <h2 lang="es">6. Menores de edad</h2>
+      <h2 lang="en">6. Children</h2>
+      <p lang="es">Esta aplicación no está dirigida a menores de 13 años y no recopila conscientemente datos de menores.</p>
+      <p lang="en">This app is not directed at children under 13 and does not knowingly collect data from minors.</p>
+    </div>
+  </div>
+
+  <div class="clause">
+    <div class="badge" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+    <div class="clause-body">
+      <h2 lang="es">7. Cambios a esta política</h2>
+      <h2 lang="en">7. Changes to This Policy</h2>
+      <p lang="es">Cualquier modificación será comunicada mediante una actualización de la aplicación o de esta misma página. El uso continuado de ChessRem tras los cambios implica su aceptación.</p>
+      <p lang="en">Any changes will be communicated via an app update or on this same page. Continued use of ChessRem after changes implies acceptance.</p>
+    </div>
+  </div>
+
+  <div class="clause">
+    <div class="badge" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+    <div class="clause-body">
+      <h2 lang="es">8. Contacto</h2>
+      <h2 lang="en">8. Contact</h2>
+      <p lang="es">Para cualquier consulta sobre esta política, escríbenos:</p>
+      <p lang="en">For any questions about this policy, write to us:</p>
+      <div class="contact">
+        <a class="mailto" href="mailto:chessrem.app@gmail.com"><code>chessrem.app@gmail.com</code></a>
+        <button type="button" class="copy-email">
+          <span lang="es">Copiar</span><span lang="en">Copy</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <span lang="es">Esta página es la política de privacidad pública de ChessRem, enlazada desde Google Play y la App Store.</span>
+    <span lang="en">This page is ChessRem's public privacy policy, linked from Google Play and the App Store.</span>
+  </footer>
+</div>
+
+<script>
+(function(){
+  var root = document.getElementById('app');
+  var btns = document.querySelectorAll('[data-lang-btn]');
+
+  function setLang(lang){
+    root.setAttribute('data-lang', lang);
+    btns.forEach(function(b){ b.setAttribute('aria-pressed', String(b.getAttribute('data-lang-btn') === lang)); });
+    try { localStorage.setItem('chessrem-privacy-lang', lang); } catch(e) {}
+  }
+
+  btns.forEach(function(b){
+    b.addEventListener('click', function(){ setLang(b.getAttribute('data-lang-btn')); });
+  });
+
+  var saved = null;
+  try { saved = localStorage.getItem('chessrem-privacy-lang'); } catch(e) {}
+  setLang(saved || 'es');
+
+  function copyText(text, btn){
+    var original = btn.innerHTML;
+    function done(ok){
+      btn.textContent = ok
+        ? (root.getAttribute('data-lang') === 'en' ? 'Copied' : 'Copiado')
+        : (root.getAttribute('data-lang') === 'en' ? 'Copy manually' : 'Copia manual');
+      if (ok) btn.classList.add('ok');
+      setTimeout(function(){ btn.innerHTML = original; btn.classList.remove('ok'); }, 1600);
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(function(){ done(true); }).catch(function(){ done(false); });
+    } else {
+      done(false);
+    }
+  }
+
+  document.querySelectorAll('.copy-email').forEach(function(b){
+    b.addEventListener('click', function(){ copyText('chessrem.app@gmail.com', this); });
+  });
+})();
+</script>
+</body>
+</html>
